@@ -1,0 +1,141 @@
+#ctr {
+    height: 500px;
+    width: 500px;
+    /* overflow: visible; */
+    // display: none;
+}
+
+#rect1 {
+    height: 200px;
+    width: 200px;
+    fill: rgb(255, 60, 0); /* Change the color of the svg */
+    background-color: green; /* Backgorund color does not work with svgs */
+    stroke: green;
+    stroke-width: 10px;
+    x: 5px; /* move the svg to the rdight */
+    y: 5px; /* move the svg down */ 
+    display: none;
+}
+
+#circle1 {
+    cx: 52.5px; /* Move circle center */
+    cy: 52.5px;
+    r: 50px; /* circle radius */
+    fill: red;
+    stroke: blue;
+    stroke-width: 5px;
+    display: none;
+}
+
+#ellipse1 {
+    rx: 200px;
+    ry: 100px;
+    cx: 202.5px;
+    cy: 102.5px;
+    fill: red;
+    stroke: black;
+    stroke-width: 5px;
+    display: none;
+}
+
+#line1 {
+    stroke: red;
+    stroke-width: 2;
+    display: none;
+}
+
+#polygon1 { 
+    fill: red;
+    stroke: black;
+    stroke-width: 5px;
+    display: none;
+}
+
+#polyline1 {
+    fill: red;
+    stroke: black;
+    stroke-width: 5px;
+    display: none;
+}
+
+#path1 {
+    fill: none;
+    stroke: red;
+    stroke-width: 10px;
+    display: none;
+}
+
+#text1 {
+    fill: red;
+    font-size: 40px;
+    display: none;
+}
+
+#rect2 {
+    width: 50px;
+    height: 50px;
+    display: none;
+}
+
+#circle2 {
+    cx: 22.5px; /* Move circle center */
+    cy: 22.5px;
+    r: 20px; /* circle radius */
+    fill: red;
+    stroke: blue;
+    stroke-width: 5px;
+}
+
+#circle3 {
+    cx: 120px; /* Move circle center */
+    cy: 120px;
+    r: 70px; /* circle radius */
+    fill: green;
+    stroke: brown;
+    stroke-width: 5px;
+}
+
+#circle4 {
+    cx: 250px; /* Move circle center */
+    cy: 70px;
+    r: 30px; /* circle radius */
+    fill: yellow;
+    stroke: black;
+    stroke-width: 5px;
+}
+
+#group1 {
+    display: none;
+}
+
+#text2 {
+    fill: green;
+    display: none;
+}
+
+#circle5 {
+    cx: 250px; /* Move circle center */
+    cy: 140px;
+    r: 90px; /* circle radius */
+    fill: yellow;
+    stroke: black;
+    stroke-width: 5px;
+    display: none;
+}
+
+#rect3 {
+    x: 50px;
+    y: 50px;
+    width: 200px;
+    height: 200px;
+}
+
+#rect4 {
+    x: 50px;
+    y: 50px;
+    width: 200px;
+    height: 200px;
+    fill: none;
+    stroke: black;
+    display: none;
+}

@@ -1,9 +1,13 @@
 import 'normalize.css/normalize.css';
 import '../scss/styles.scss';
-import * as d3 from "d3"
 import { importImages } from './importImages'
+import { section2HTML } from './sectionsHTML/section2HTML'
+import { section3HTML } from './sectionsHTML/section3HTML'
+import { test3 } from './sectionsJS/section3JS'
 
-document.querySelector('h1').innerHTML = 'Dynamic Heading'
-console.log('Test console.log')
+// Section 2
+// document.querySelector('body').insertAdjacentHTML('beforeend', section2HTML)
 
-// console.log(d3)
+// Section 3
+document.querySelector('body').insertAdjacentHTML('beforeend', section3HTML)
+test3()
