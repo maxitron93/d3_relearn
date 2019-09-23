@@ -50,6 +50,18 @@ module.exports = (env) => {
                     }              
                   }
                 ]
+              },
+              {
+                test: /\.csv$/,
+                use: [
+                  {
+                    loader: 'file-loader',
+                    options: {
+                      name: '[name].[ext]',
+                      outputPath: 'csv/'
+                    }  
+                  }
+                ]
               }
             ]
         },
