@@ -29,10 +29,11 @@
     font-size: 12px
 }
 
-#button {
+#button,
+#button-add {
     cursor: pointer;
     height: 30px;
-    width: 100px;
+    width: 200px;
     margin: 25px auto;
     background-color: grey;
     border-radius: 2px;

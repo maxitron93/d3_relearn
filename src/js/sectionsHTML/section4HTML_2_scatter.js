@@ -3,6 +3,7 @@ const section4HTML_2_scatter = `
 
     <div id="chart"></div>
     <div id="button">Reverse Data</div>
+    <div id="button-add">Add New Data</div>
 `
 
 export {

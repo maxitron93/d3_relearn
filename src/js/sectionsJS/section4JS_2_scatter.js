@@ -109,7 +109,7 @@ const initSection4_2_scatter = () => {
 
 
 
-    // Add click event
+    // Add Reverse Data click event
     d3.select('#button').on('click', () => {
         // Simulate data change (reverse)
         data4_2_scatter.reverse() 
@@ -156,6 +156,93 @@ const initSection4_2_scatter = () => {
             return  yScale(dataPoint[1]) - aScale(dataPoint[2]) - 5
         })
 
+    })
+
+    // Add New Data click event
+    d3.select('#button-add').on('click', () => {
+        data4_2_scatter.push([
+            Math.floor(Math.random() * 500), 
+            Math.floor(Math.random() * 400), 
+            Math.floor(Math.random() * 250), 
+            'dog'])
+
+        // Update the x and y domains
+        xScale.domain([0, d3.max(data4_2_scatter, (dataPoint) => {
+            return dataPoint[0]
+        })])
+        yScale.domain([0, d3.max(data4_2_scatter, (dataPoint) => {
+            return dataPoint[1]
+        })])
+        aScale.domain([0, d3.max(data4_2_scatter, (dataPoint) => {
+            return dataPoint[2]
+        })])
+
+        // Redraw the circles
+        svg.selectAll('circle')
+        .data(data4_2_scatter)
+        .enter()
+        .append('circle')
+        .attr('cx', (dataPoint, index) => {
+            return xScale(dataPoint[0])
+        })
+        .attr('cy', (dataPoint) => {
+            return yScale(dataPoint[1])
+        })
+        .attr('r', (dataPoint, index) => {
+            return aScale(dataPoint[2])
+        })
+        .attr('fill', (dataPoint) => {
+            if (dataPoint[3] === 'cat') {
+                return 'red'
+            } else {
+                return 'green'
+            }
+        })
+        
+
+        // Redraw the text
+        svg.selectAll('.circle-label') // Need to do .append('g') so the 'text' in the axis isn't selected
+        .data(data4_2_scatter)
+        .enter()
+        .append('text')
+        .attr('class', 'circle-label')
+        .text((dataPoint) => {
+            return `${dataPoint[0]}, ${dataPoint[1]}, ${dataPoint[3]}`
+        })
+        .attr('x', (dataPoint, index) => {
+            return xScale(dataPoint[0])
+        })
+        .attr('y', (dataPoint, index) => {
+            return  yScale(dataPoint[1]) - aScale(dataPoint[2]) - 5
+        })
+        .attr('text-anchor', 'middle')
+        .attr('font-size', '12px')
+
+        // Add hover event. Need to add one after new data points are created so it applies to all circles - need to find a better way of doing this
+        d3.selectAll('circle')
+        .on('mouseover', function() {
+            console.log(this)
+            d3.select(this)
+            .attr('fill', 'black')
+            
+        })
+        .on('mouseout', function() {
+            d3.select(this)
+            .attr('fill', 'red')
+        })
+    })
+
+    // Add hover event
+    d3.selectAll('circle')
+    .on('mouseover', function() {
+        console.log(this)
+        d3.select(this)
+        .attr('fill', 'black')
+        
+    })
+    .on('mouseout', function() {
+        d3.select(this)
+        .attr('fill', 'red')
     })
 }
 
