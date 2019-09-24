@@ -9,6 +9,8 @@ import { initSection4_1_bar } from './sectionsJS/section4JS_1_bar'
 import { section4HTML_2_scatter } from './sectionsHTML/section4HTML_2_scatter'
 import { initSection4_2_scatter } from './sectionsJS/section4JS_2_scatter'
 import { section4HTML_3_scalesIntro } from './sectionsHTML/section4HTML_3_scalesIntro'
+import { section7HTML } from './sectionsHTML/section7HTML'
+import { initSection7 } from './sectionsJS/section7JS'
 
 // Section 2
 // document.querySelector('body').insertAdjacentHTML('beforeend', section2HTML)
@@ -22,7 +24,10 @@ import { section4HTML_3_scalesIntro } from './sectionsHTML/section4HTML_3_scales
 // initSection4_1_bar()
 
 // Section 4_2_scatter
-document.querySelector('body').insertAdjacentHTML('beforeend', section4HTML_2_scatter)
-initSection4_2_scatter()
+// document.querySelector('body').insertAdjacentHTML('beforeend', section4HTML_2_scatter)
+// initSection4_2_scatter()
 
 // document.querySelector('body').insertAdjacentHTML('beforeend', section4HTML_3_scalesIntro)
+
+document.querySelector('body').insertAdjacentHTML('beforeend', section7HTML)
+initSection7()
