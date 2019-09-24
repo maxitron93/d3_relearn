@@ -73,13 +73,19 @@ const initSection4_2_scatter = () => {
     .attr('cx', (dataPoint, index) => {
         return xScale(dataPoint[0])
     })
-    .attr('r', (dataPoint, index) => {
-        return aScale(dataPoint[2])
-    })
     .attr('cy', (dataPoint) => {
         return yScale(dataPoint[1])
     })
-    .attr('fill', '#D1AB0E')
+    .attr('r', (dataPoint, index) => {
+        return aScale(dataPoint[2])
+    })
+    .attr('fill', (dataPoint) => {
+        if (dataPoint[3] === 'cat') {
+            return 'red'
+        } else {
+            return 'green'
+        }
+    })
 
 
 
@@ -88,8 +94,9 @@ const initSection4_2_scatter = () => {
     .data(data4_2_scatter)
     .enter()
     .append('text')
+    .attr('class', 'circle-label')
     .text((dataPoint) => {
-        return `${dataPoint[0]}, ${dataPoint[1]}`
+        return `${dataPoint[0]}, ${dataPoint[1]}, ${dataPoint[3]}`
     })
     .attr('x', (dataPoint, index) => {
         return xScale(dataPoint[0])
@@ -99,6 +106,57 @@ const initSection4_2_scatter = () => {
     })
     .attr('text-anchor', 'middle')
     .attr('font-size', '12px')
+
+
+
+    // Add click event
+    d3.select('#button').on('click', () => {
+        // Simulate data change (reverse)
+        data4_2_scatter.reverse() 
+
+        // Redraw the circles
+        svg.selectAll('circle')
+        .data(data4_2_scatter)
+        .transition() // Add a transition. Order matters. Doesn't work if it's at the end.
+        .duration(1000) // Transition with 1 second duration
+        .ease(d3.easeElasticOut) // Specify transition motion
+        .delay((dataPoint, index) => {
+            return index / data4_2_scatter.length * 500
+        }) // Add delay depending on index
+        .attr('cx', (dataPoint, index) => {
+            return xScale(dataPoint[0])
+        })
+        .attr('cy', (dataPoint) => {
+            return yScale(dataPoint[1])
+        })
+        .attr('fill', (dataPoint) => {
+            if (dataPoint[3] === 'cat') {
+                return 'red'
+            } else {
+                return 'green'
+            }
+        })
+
+        // Redraw the text
+        svg.selectAll('.circle-label')
+        .data(data4_2_scatter)
+        .transition() // Add a transition. Order matters. Doesn't work if it's at the end.
+        .duration(1000) // Transition with 1 second duration
+        .ease(d3.easeElasticOut) // Specify transition motion
+        .delay((dataPoint, index) => {
+            return index / data4_2_scatter.length * 500
+        }) // Add delay depending on index
+        .text((dataPoint) => {
+            return `${dataPoint[0]}, ${dataPoint[1]}, ${dataPoint[3]}`
+        })
+        .attr('x', (dataPoint, index) => {
+            return xScale(dataPoint[0])
+        })
+        .attr('y', (dataPoint, index) => {
+            return  yScale(dataPoint[1]) - aScale(dataPoint[2]) - 5
+        })
+
+    })
 }
 
 export {
