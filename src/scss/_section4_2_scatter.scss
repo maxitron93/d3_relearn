@@ -4,3 +4,28 @@
     background-color: #f7f7f7;
     margin: 25px auto;
 }
+
+.x-axis path,
+.x-axis line {
+    shape-rendering: crispEdges;
+    stroke-width: 1px;
+}
+
+.x-axis text {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 12px
+}
+
+.y-axis path,
+.y-axis line {
+    shape-rendering: crispEdges;
+    stroke-width: 0px;
+}
+
+.y-axis text {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 12px
+}
+
